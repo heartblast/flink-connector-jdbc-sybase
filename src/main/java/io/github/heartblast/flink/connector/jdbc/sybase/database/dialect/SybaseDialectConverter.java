@@ -42,7 +42,7 @@ public class SybaseDialectConverter extends AbstractDialectConverter {
                     if (val instanceof byte[]) {
                         byte[] b = (byte[]) val;
                         if (b.length == 0) {
-                            return null; // JDBC 드라이버가 빈 바이트를 줄 가능성 방어
+                            return null; // Protecting against the possibility that the JDBC driver will return empty bytes
                         }
                         int i = Byte.toUnsignedInt(b[0]);
                         return toUnsignedTinyShort(i);
@@ -61,7 +61,7 @@ public class SybaseDialectConverter extends AbstractDialectConverter {
 
     // -------------------- helpers --------------------
 
-    /** 0..255 확인 후 Short로 반환(부호 손실 방지). */
+    /** After checking 0..255, return as Short (to prevent sign loss). */
     private static Short toUnsignedTinyShort(int i) {
         if (i < 0 || i > 255) {
             throw new IllegalArgumentException("Sybase TINYINT out of range: " + i + " (expected 0..255)");
