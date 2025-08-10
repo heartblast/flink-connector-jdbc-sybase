@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.heartblast.flink</groupId>
+    <artifactId>flink-connector-jdbc-sybase</artifactId>
+    <name>Flink : Connectors : JDBC : sybase</name>
+    <version>3.3.0-1.20</version>
+
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <flink.version>1.20.1</flink.version>
+        <scala.binary.version>2.12</scala.binary.version>
+        <scala-library.version>2.12.7</scala-library.version>
+        <jackson-bom.version>2.13.4.20221013</jackson-bom.version>
+        <junit4.version>4.13.2</junit4.version>
+        <junit5.version>5.10.1</junit5.version>
+        <assertj.version>3.24.2</assertj.version>
+        <mockito.version>3.12.4</mockito.version>
+
+        <japicmp.referenceVersion>3.3.0-1.20</japicmp.referenceVersion>
+
+        <slf4j.version>1.7.36</slf4j.version>
+        <log4j.version>2.17.2</log4j.version>
+
+
+        <surefire.module.config>
+            <!-- required by JdbcExactlyOnceSinkE2eTest --> --add-opens=java.base/java.util=ALL-UNNAMED
+            <!-- SimpleJdbcConnectionProviderDriverClassConcurrentLoadingITCase--> --add-opens=java.base/java.lang=ALL-UNNAMED
+        </surefire.module.config>
+        <spotless.skip>false</spotless.skip>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-jdbc</artifactId>
+            <version>3.3.0-1.20</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-jdbc-core</artifactId>
+            <version>3.3.0-1.20</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-core</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-base</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-common</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <!-- This section defines the module versions that are used if nothing else is specified. -->
+
+    <build>
+        <plugins>
+            <!-- Java 8 compiler -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0-M2</version>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+<!--
+    <distributionManagement>
+        <repository>
+            <id>release</id>
+            <name>RELEASE</name>
+            <url>${release.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot</id>
+            <name>SNAPSHOT</name>
+            <url>${snapshot.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+-->
+</project>
