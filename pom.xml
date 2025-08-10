@@ -97,18 +97,5 @@
 
     </build>
 
-<!--
-    <distributionManagement>
-        <repository>
-            <id>release</id>
-            <name>RELEASE</name>
-            <url>${release.url}</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshot</id>
-            <name>SNAPSHOT</name>
-            <url>${snapshot.url}</url>
-        </snapshotRepository>
-    </distributionManagement>
--->
+
 </project>
