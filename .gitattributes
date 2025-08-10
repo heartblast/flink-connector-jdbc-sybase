@@ -1,0 +1,16 @@
+﻿*.html linguist-detectable=false
+*.css  linguist-detectable=false
+*.js   linguist-detectable=false
+*.svg  linguist-detectable=false
+
+docs/**      linguist-vendored=true
+site/**      linguist-vendored=true
+public/**    linguist-vendored=true
+gh-pages/**  linguist-vendored=true
+
+target/**  linguist-generated=true
+dist/**    linguist-generated=true
+build/**   linguist-generated=true
+
+vendor/**       linguist-vendored=true
+third_party/**  linguist-vendored=true
