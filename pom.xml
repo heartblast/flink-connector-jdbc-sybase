@@ -83,7 +83,7 @@
 
     <build>
         <plugins>
-            <!-- Java 8 compiler -->
+            <!-- Java 11 compiler -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
